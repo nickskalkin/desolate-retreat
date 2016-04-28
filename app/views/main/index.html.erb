@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-7">
+    <h1>ОСАГО</h1>
+
+    <%= simple_form_for @calculator do |f| %>
+      <%= f.input :city_id, collection: City.all, selected: City.first %>
+      <%= f.input :drivers_count, include_blank: false %>
+      <%= f.input :driver_experience, include_blank: false %>
+      <%= f.input :car_id, collection: Car.all, selected: Car.first %>
+      <%= f.input :car_horse_power_id,
+                  collection: CarHorsePower.all,
+                  selected: CarHorsePower.first,
+                  label_method: :description %>
+
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+<div>
