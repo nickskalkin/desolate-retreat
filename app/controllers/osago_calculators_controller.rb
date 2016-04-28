@@ -14,6 +14,16 @@ class OsagoCalculatorsController < ApplicationController
     @calculator = OsagoCalculator.find(params[:id])
   end
 
+  def update
+    @calculator = OsagoCalculator.find(params[:id])
+    if @calculator.update_attributes(calculator_params)
+      return redirect_to edit_osago_calculator_url(@calculator)
+    else
+      flash[:error] = calculator.errors.full_messages.join(', ')
+    end
+    redirect_to '/'
+  end
+
   private
 
   def calculator_params
