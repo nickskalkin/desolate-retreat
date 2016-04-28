@@ -41,6 +41,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: osago_production
   username: osago
   password: <%= ENV['OSAGO_DATABASE_PASSWORD'] %>
