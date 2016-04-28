@@ -9,6 +9,7 @@ class CreateOsagoCalculators < ActiveRecord::Migration
       t.boolean :trailer, default: false
       t.boolean :with_accidents, default: false
       t.float   :cost
+      t.integer :insurance_period
       t.timestamps null: false
     end
   end

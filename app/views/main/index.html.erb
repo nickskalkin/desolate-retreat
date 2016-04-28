@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-md-7">
-    <h1>ОСАГО</h1>
+    <h1>Калькулятор</h1>
+    <hr />
 
     <%= simple_form_for @calculator do |f| %>
+      <%= f.input :insurance_period, include_blank: false, label: 'Период страхования' %>
       <%= f.input :city_id, collection: City.all, selected: City.first, label: 'Город' %>
       <%= f.input :drivers_count, include_blank: false, label: 'Количество водителей' %>
       <%= f.input :driver_experience, include_blank: false, label: 'Опыт водителя' %>

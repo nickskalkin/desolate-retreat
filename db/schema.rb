@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160427202222) do
     t.boolean  "trailer",                       default: false
     t.boolean  "with_accidents",                default: false
     t.float    "cost",               limit: 24
+    t.integer  "insurance_period",   limit: 4
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
   end
