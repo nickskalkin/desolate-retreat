@@ -13,42 +13,45 @@
 
 ActiveRecord::Schema.define(version: 20160427202222) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "car_horse_powers", force: :cascade do |t|
-    t.string   "description", limit: 255
-    t.float    "rate",        limit: 24
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "description"
+    t.float    "rate"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "cars", force: :cascade do |t|
-    t.string   "title",            limit: 255
-    t.integer  "rate",             limit: 4
+    t.string   "title"
+    t.integer  "rate"
     t.boolean  "tractor"
-    t.integer  "trailer_category", limit: 4,   default: 0
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.integer  "trailer_category", default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "cities", force: :cascade do |t|
-    t.string   "name",         limit: 255
-    t.float    "car_rate",     limit: 24
-    t.float    "tractor_rate", limit: 24
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "name"
+    t.float    "car_rate"
+    t.float    "tractor_rate"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "osago_calculators", force: :cascade do |t|
-    t.integer  "city_id",            limit: 4
-    t.integer  "drivers_count",      limit: 4,  default: 0
-    t.integer  "driver_experience",  limit: 4,  default: 0
-    t.integer  "car_id",             limit: 4
-    t.integer  "car_horse_power_id", limit: 4
-    t.boolean  "trailer",                       default: false
-    t.boolean  "with_accidents",                default: false
-    t.float    "cost",               limit: 24
-    t.integer  "insurance_period",   limit: 4
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.integer  "city_id"
+    t.integer  "drivers_count",      default: 0
+    t.integer  "driver_experience",  default: 0
+    t.integer  "car_id"
+    t.integer  "car_horse_power_id"
+    t.boolean  "trailer",            default: false
+    t.boolean  "with_accidents",     default: false
+    t.float    "cost"
+    t.integer  "insurance_period"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
 end

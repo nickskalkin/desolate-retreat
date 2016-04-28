@@ -82,9 +82,9 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.3)
-    mysql2 (0.4.3)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -94,6 +94,7 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    puma (3.4.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -170,10 +171,11 @@ DEPENDENCIES
   enum_help
   jbuilder (~> 2.0)
   jquery-rails
-  mysql2
+  pg
   pry
   pry-byebug
   pry-rails
+  puma
   rails (= 4.2.5.2)
   sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
