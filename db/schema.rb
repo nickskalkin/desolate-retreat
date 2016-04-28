@@ -21,11 +21,12 @@ ActiveRecord::Schema.define(version: 20160427202222) do
   end
 
   create_table "cars", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.integer  "rate",       limit: 4
+    t.string   "title",            limit: 255
+    t.integer  "rate",             limit: 4
     t.boolean  "tractor"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "trailer_category", limit: 4,   default: 0
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   create_table "cities", force: :cascade do |t|
@@ -42,9 +43,11 @@ ActiveRecord::Schema.define(version: 20160427202222) do
     t.integer  "driver_experience",  limit: 4,  default: 0
     t.integer  "car_id",             limit: 4
     t.integer  "car_horse_power_id", limit: 4
+    t.boolean  "trailer",                       default: false
+    t.boolean  "with_accidents",                default: false
     t.float    "cost",               limit: 24
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
   end
 
 end

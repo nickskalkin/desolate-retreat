@@ -6,6 +6,8 @@ class CreateOsagoCalculators < ActiveRecord::Migration
       t.integer :driver_experience, default: 0
       t.integer :car_id
       t.integer :car_horse_power_id
+      t.boolean :trailer, default: false
+      t.boolean :with_accidents, default: false
       t.float   :cost
       t.timestamps null: false
     end

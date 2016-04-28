@@ -4,6 +4,7 @@ class CreateCars < ActiveRecord::Migration
       t.string :title
       t.integer :rate
       t.boolean :tractor
+      t.integer :trailer_category, default: 0
 
       t.timestamps null: false
     end

@@ -1,7 +1,20 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Car.create!(title: 'Мотоциклы, мотороллеры (категории А)', rate: 1215, tractor: false, trailer_category: :car)
+Car.create!(title: 'Легковые автомобили для физических лиц(категории В)', rate: 1980, tractor: false, trailer_category: :car)
+Car.create!(title: 'Легковые автомобили для юридических лиц(категории В)', rate: 2375, tractor: false, trailer_category: :car)
+Car.create!(title: 'Грузовые автомобили < 16 тонн (категории С)', rate: 2375, tractor: false, trailer_category: :truck)
+Car.create!(title: 'Грузовые автомобили > 16 тонн (категории С)', rate: 2375, tractor: false, trailer_category: :truck)
+Car.create!(title: 'Тракторы, самоходные дорожно-строительные и иные машины', rate: 1215, tractor: true, trailer_category: :truck)
+
+City.create!(name: 'Барнаул', car_rate:	1.7, tractor_rate: 1)
+City.create!(name: 'Вологда', car_rate:	1.7, tractor_rate: 1)
+City.create!(name: 'Чита', car_rate:	1.1, tractor_rate: 0.8)
+City.create!(name: 'Калуга', car_rate:	1.2, tractor_rate: 0.8)
+City.create!(name: 'Орел', car_rate:	1.2, tractor_rate: 0.8)
+City.create!(name: 'Ухта', car_rate:	1.3, tractor_rate: 0.8)
+
+CarHorsePower.create!(description: 'До 50 л.с. включительно', rate: 0.6)
+CarHorsePower.create!(description: 'от 51 до 70 включительно', rate: 1.0)
+CarHorsePower.create!(description: 'от 71 до 100 включительно', rate: 1.1)
+CarHorsePower.create!(description: 'от 101 до 120 включительно', rate: 1.2)
+CarHorsePower.create!(description: 'от 121 до 150 включительно', rate: 1.4)
+CarHorsePower.create!(description: 'от 151', rate: 1.6)

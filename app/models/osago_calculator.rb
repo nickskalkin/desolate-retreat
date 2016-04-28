@@ -26,17 +26,25 @@ class OsagoCalculator < ActiveRecord::Base
     'older22more3'  => 1.0
   }.freeze
 
+  WITHOUT_ACCIDENTS_RATE = 1
+  WITH_ACCIDENTS_RATE = 1.5
+
   before_save :calculate_osago
 
   private
 
   def calculate_osago
     self.cost = base_rate * city_rate * drivers_count_rate * drivers_experience_rate *
-                car_horse_power_rate
+                car_horse_power_rate * accidents_rate
   end
 
   def base_rate
-    car.rate
+    car.rate + trailer_rate
+  end
+
+  def trailer_rate
+    return 0 unless trailer
+    Car::TRAILER_CATEGORY_RATIO[car.trailer_category]
   end
 
   def city_rate
@@ -53,5 +61,9 @@ class OsagoCalculator < ActiveRecord::Base
 
   def car_horse_power_rate
     car_horse_power.rate
+  end
+
+  def accidents_rate
+    with_accidents? ? WITH_ACCIDENTS_RATE : WITHOUT_ACCIDENTS_RATE
   end
 end

@@ -25,3 +25,26 @@ en:
       osago_calculator:
         create: "Рассчитать"
         update: "Пересчитать"
+  activerecord:
+    attributes:
+      osago_calculator:
+        drivers_count:
+          drivers_limited: Ограничего
+          drivers_not_limited: Не ограничего
+        driver_experience:
+          not_setted_up: Не выбрано
+          yonger22less3: Моложе 22 лет, опыт меньше 3 лет
+          yonger22more3: Моложе 22 лет, опыт больше 3 лет
+          older22less3: Старше 22 лет, опыт меньше 3 лет
+          older22more3: Старше 22 лет, опыт больше 3 лет
+  enums:
+    osago_calculator:
+      drivers_count:
+        drivers_limited: Ограничего
+        drivers_not_limited: Не ограничего
+      driver_experience:
+        not_setted_up: Не выбрано
+        yonger22less3: Моложе 22 лет, опыт меньше 3 лет
+        yonger22more3: Моложе 22 лет, опыт больше 3 лет
+        older22less3: Старше 22 лет, опыт меньше 3 лет
+        older22more3: Старше 22 лет, опыт больше 3 лет
