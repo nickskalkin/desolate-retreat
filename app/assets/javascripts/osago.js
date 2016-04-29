@@ -1,6 +1,6 @@
 $(function(){
 
-  if ($('#osago_calculator_drivers_count').val() == 'drivers_limited') {
+  if ($('#osago_calculator_drivers_count').val() == 'drivers_not_limited') {
     hideDriverExperience();
   }
 
@@ -14,7 +14,7 @@ $(function(){
   }
 
   $('#osago_calculator_drivers_count').change(function(){
-    if ($(this).val() == 'drivers_limited') {
+    if ($(this).val() == 'drivers_not_limited') {
       hideDriverExperience();
     } else {
       showDriverExperience();
