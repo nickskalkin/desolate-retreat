@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427202222) do
+ActiveRecord::Schema.define(version: 20160503170435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,10 @@ ActiveRecord::Schema.define(version: 20160427202222) do
     t.integer  "rate"
     t.boolean  "tractor"
     t.integer  "trailer_category", default: 0
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "rate_max",         default: 0
+    t.float    "trailer_rate",     default: 0.0
   end
 
   create_table "cities", force: :cascade do |t|
@@ -42,16 +44,18 @@ ActiveRecord::Schema.define(version: 20160427202222) do
 
   create_table "osago_calculators", force: :cascade do |t|
     t.integer  "city_id"
-    t.integer  "drivers_count",      default: 0
-    t.integer  "driver_experience",  default: 0
+    t.integer  "drivers_count",                default: 0
+    t.integer  "driver_experience",            default: 0
     t.integer  "car_id"
     t.integer  "car_horse_power_id"
-    t.boolean  "trailer",            default: false
-    t.boolean  "with_accidents",     default: false
+    t.boolean  "trailer",                      default: false
+    t.boolean  "with_accidents",               default: false
     t.float    "cost"
     t.integer  "insurance_period"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.string   "bonus_malun",        limit: 3, default: "M"
+    t.float    "cost_max",                     default: 0.0
   end
 
 end

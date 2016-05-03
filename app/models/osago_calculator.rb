@@ -22,6 +22,44 @@ class OsagoCalculator < ActiveRecord::Base
     m9: 6, b9: 7
   }
 
+  enum bunus_malus: {
+    'М' => "M",
+    '0' => "0",
+    '1' => '1',
+    '2' => "2",
+    '3' => "3",
+    '4' => "4",
+    '5' => "5",
+    '6' => "6",
+    '7' => "7",
+    '8' => "8",
+    '9' => "9",
+    '10' => "10",
+    '11' => "11",
+    '12' => "12",
+    '13' => "13"
+  }
+
+   BONUS_MALUS = {
+   'M' => 2.45,
+   '0' => 2.3,
+   '1' => 1.55,
+   '2' => 1.4,
+   '3' => 1,
+   '4' => 0.95,
+   '5' => 0.9,
+   '6' => 0.85,
+   '7' => 0.8,
+   '8' => 0.75,
+   '9' => 0.7,
+   '10' => 0.65,
+   '11' => 0.6,
+   '12' => 0.55,
+   '13' => 0.5
+  }
+
+
+
   DRIVERS_LIMITED_RATE = 1
   DRIVERS_NOT_LIMITED_RATE = 1.8
 
@@ -47,17 +85,36 @@ class OsagoCalculator < ActiveRecord::Base
   private
 
   def calculate_osago
-    self.cost = base_rate * city_rate * drivers_count_rate * drivers_experience_rate *
-                car_horse_power_rate * accidents_rate * insurance_period_rate
+    self.cost = rate_min * city_rate * drivers_count_rate * drivers_experience_rate *
+                car_horse_power_rate * accidents_rate * insurance_period_rate * malun_rate * trailer_rate
+
+    self.cost_max = rate_max * city_rate * drivers_count_rate * drivers_experience_rate *
+                car_horse_power_rate * accidents_rate * insurance_period_rate * malun_rate * trailer_rate
+    puts  "rate_min= #{rate_min}
+city_rate=#{city_rate}
+drivers_count_rate=#{drivers_count_rate}
+drivers_experience_rate=#{drivers_experience_rate}
+car_horse_power_rate=#{car_horse_power_rate }
+accidents_rate=#{accidents_rate}
+insurance_period_rate=#{insurance_period_rate}
+malun_rate=#{malun_rate}
+trailer_rate=#{trailer_rate}"
   end
 
-  def base_rate
-    car.rate + trailer_rate
+  def  malun_rate
+     BONUS_MALUS[bonus_malun || "M"]
+  end
+
+  def rate_min
+    car.rate
+  end
+
+  def rate_max
+    car.rate_max
   end
 
   def trailer_rate
-    return 0 unless trailer
-    Car::TRAILER_CATEGORY_RATIO[car.trailer_category]
+    car.trailer_rate
   end
 
   def city_rate

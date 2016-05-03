@@ -29,7 +29,8 @@ class OsagoCalculatorsController < ApplicationController
   def calculator_params
     params.require(:osago_calculator).permit(
       :city_id, :drivers_count, :driver_experience, :car_id,
-      :car_horse_power_id, :trailer, :with_accidents, :insurance_period
+      :car_horse_power_id, :trailer, :with_accidents, :insurance_period,
+      :bonus_malun
     )
   end
 end
