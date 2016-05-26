@@ -1,4 +1,9 @@
 class OsagoCalculatorsController < ApplicationController
+
+  def new
+    @calculator = OsagoCalculator.new
+  end
+
   def create
     calculator = OsagoCalculator.new(calculator_params)
     if calculator.valid?
