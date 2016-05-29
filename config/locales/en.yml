@@ -25,6 +25,8 @@ en:
       osago_calculator:
         create: "Рассчитать"
         update: "Пересчитать"
+      policy:
+        create: 'Оформить'
   activerecord:
     attributes:
       osago_calculator:

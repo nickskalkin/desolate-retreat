@@ -1,5 +1,4 @@
 class OsagoCalculatorsController < ApplicationController
-
   def new
     @calculator = OsagoCalculator.new
   end

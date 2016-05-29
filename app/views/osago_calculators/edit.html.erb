@@ -32,6 +32,13 @@
     <hr />
 
     <b>Стоимость</b> ОСАГО составляет  от <b><%= @calculator.cost%> до <%=@calculator.cost_max%> </b> рублей.
-
+    <div>
+      <br />
+      <% if current_user %>
+        Сделать выписку
+      <% else %>
+        <%= link_to 'Сделать выписку', new_user_registration_path(osago_id: @calculator.id), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
 <div>

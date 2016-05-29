@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class='breadcrumbs'>
+      <ul>
+        <li class='active'>Оформление полиса</li>
+      <ul>
+    </div>
+    <hr />
+    <%= simple_form_for @policy do |f| %>
+      <%= f.input :address, label: 'Ваш адрес' %>
+      <%= f.input :user_id, as: :hidden %>
+      <%= f.input :policy_object_id, as: :hidden %>
+      <%= f.input :policy_object_type, as: :hidden %>
+      <%= f.button :submit, label: 'Оформить полис' %>
+    <% end %>
+  </div>
+<div>
