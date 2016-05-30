@@ -12,6 +12,7 @@ gem 'sass-rails', '>= 3.2'
 gem 'puma'
 gem 'devise'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'nested_form'
 
 group :development, :test do
   gem 'pry-byebug'

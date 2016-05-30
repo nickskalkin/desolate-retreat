@@ -7,11 +7,17 @@
     </div>
     <hr />
     <%= simple_form_for @policy do |f| %>
-      <%= f.input :address, label: 'Ваш адрес' %>
+      <%= f.input :fullname, label: 'Страхователь (фамилия, имя, отчество гражданина)' %>
+      <%= f.input :owner, label: 'Собственник ТС (фамилия, имя, отчество гражданина)' %>
+      <%= f.input :address %>
+      <%= f.input :auto_id %>
+      <%= f.input :gos_znak %>
+      <%= f.input :auto_passport_type, label: 'Пасспотр ТС, свидетельство о регистрации ТС, либо аналогичный документ' %>
+      <%= f.input :auto_passport_serial_number %>
+      <%= f.input :auto_passport_number %>
       <%= f.input :user_id, as: :hidden %>
       <%= f.input :policy_object_id, as: :hidden %>
       <%= f.input :policy_object_type, as: :hidden %>
-      <%= f.button :submit, label: 'Оформить полис' %>
     <% end %>
   </div>
 <div>

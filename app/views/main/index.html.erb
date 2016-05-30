@@ -3,7 +3,7 @@
     <div class='breadcrumbs'>
       <ul>
         <li class='active'><%= link_to 'Выбор типа страхования', root_path %></li>
-        <li>Рассчет</li>
+        <li>Расчет</li>
         <li>Выписка</li>
       <ul>
     </div>
@@ -11,7 +11,10 @@
 
     <ul>
       <li>
-        <%= link_to 'Осаго', new_osago_calculator_path %>
+        <%= link_to 'Расчет стоимости ОСАГО', new_osago_calculator_path %>
+      </li>
+      <li>
+        <%= link_to 'Расчет стоимости КАСКО', new_kasko_calculator_path %>
       </li>
     </ul>
   </div>

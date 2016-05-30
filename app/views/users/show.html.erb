@@ -2,4 +2,11 @@
   <div class="col-md-4">
     <%= link_to 'Выйти', destroy_user_session_path(current_user), class: 'btn btn-primary', method: 'delete' %>
   </div>
+
+  <h2>Оформленные Вами полисы:</h2>
+  <ul>
+    <% @policies.each do |policy| %>
+      <li>Полис <%= policy.policy_type %> <%=link_to policy.number, policy_path(policy) %></li>
+    <% end %>
+  </ul>
 </div>

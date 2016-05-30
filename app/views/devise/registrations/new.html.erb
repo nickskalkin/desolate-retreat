@@ -2,7 +2,9 @@
   <div class="col-md-4">
 
     <h2>Регистрация</h2>
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name, osago_id: params[:osago_id])) do |f| %>
+    <%= simple_form_for(
+      resource, as: resource_name,
+      url: registration_path(resource_name, calculator_id: params[:calculator_id], calculator_type: params[:calculator_type])) do |f| %>
       <%= f.error_notification %>
 
       <%= f.input :email, required: true, autofocus: true %>

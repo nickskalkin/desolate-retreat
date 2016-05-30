@@ -66,19 +66,10 @@ class OsagoCalculator < ActiveRecord::Base
 
     self.cost_max = rate_max * city_rate * drivers_count_rate * drivers_experience_rate *
                 car_horse_power_rate * accidents_rate * insurance_period_rate * malun_rate * trailer_rate
-    puts  "rate_min= #{rate_min}
-city_rate=#{city_rate}
-drivers_count_rate=#{drivers_count_rate}
-drivers_experience_rate=#{drivers_experience_rate}
-car_horse_power_rate=#{car_horse_power_rate }
-accidents_rate=#{accidents_rate}
-insurance_period_rate=#{insurance_period_rate}
-malun_rate=#{malun_rate}
-trailer_rate=#{trailer_rate}"
   end
 
-  def  malun_rate
-     BONUS_MALUS[bonus_malun || "M"]
+  def malun_rate
+    BONUS_MALUS[bonus_malun || 'M']
   end
 
   def rate_min

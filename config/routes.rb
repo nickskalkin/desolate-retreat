@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   }
 
   resources :osago_calculators
+  resources :kasko_calculators
   resources :users
   resources :policies
 end

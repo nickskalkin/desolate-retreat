@@ -3,7 +3,7 @@
     <div class='breadcrumbs'>
       <ul>
         <li><%= link_to 'Выбор типа страхования', root_path %></li>
-        <li class='active'>Рассчет</li>
+        <li class='active'>Расчет</li>
         <li>Выписка</li>
       <ul>
     </div>
@@ -28,16 +28,16 @@
     <% end %>
   </div>
   <div class="col-md-4">
-    <h2>Рассчет завершен</h2>
+    <h2>Расчет завершен</h2>
     <hr />
 
-    <b>Стоимость</b> ОСАГО составляет  от <b><%= @calculator.cost%> до <%=@calculator.cost_max%> </b> рублей.
+    <b>Стоимость</b> ОСАГО составляет  от <b><%= @calculator.cost %> до <%=@calculator.cost_max%> </b> рублей.
     <div>
       <br />
       <% if current_user %>
-        Сделать выписку
+        <%=link_to 'Сделать выписку', new_policy_path(calculator_id: @calculator.id, calculator_type: @calculator.class), class: 'btn btn-primary' %>
       <% else %>
-        <%= link_to 'Сделать выписку', new_user_registration_path(osago_id: @calculator.id), class: 'btn btn-primary' %>
+        <%= link_to 'Сделать выписку', new_user_registration_path(calculator_id: @calculator.id, calculator_type: @calculator.class), class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>

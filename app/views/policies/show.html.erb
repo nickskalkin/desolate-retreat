@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class='breadcrumbs'>
+      <ul>
+        <li class='active'>Полис серия <%= @policy.serial_number %> номер <%= @policy.number %></li>
+      <ul>
+    </div>
+  </div>
+<div>
+
+<div class="row">
+  <div class="col-md-8">
+    <div>
+      Страхователь (фамилия, имя, отчество гражданина): <b><%= @policy.fullname %></b>
+    </div>
+    <div>
+      Собственник ТС (фамилия, имя, отчество гражданина): <b><%= @policy.owner %></b>
+    </div>
+    <div>
+      Адрес: <b><%= @policy.address %></b>
+    </div>
+    <div>
+      Идентификационный номер ТС: <b><%= @policy.auto_id %></b>
+    </div>
+    <div>
+      Государственный регистрационный знак ТС: <b><%= @policy.gos_znak %></b>
+    </div>
+    <div>
+      <b><%= @policy.auto_passport_type %> <%= @policy.auto_passport_serial_number %> <%= @policy.auto_passport_number %></b>
+    </div>
+  </div>
+</div>

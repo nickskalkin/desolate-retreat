@@ -1,34 +1,42 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   helpers:
     submit:
       osago_calculator:
         create: "Рассчитать"
         update: "Пересчитать"
+      kasko_calculator:
+        create: "Рассчитать"
+        update: "Пересчитать"
       policy:
         create: 'Оформить'
   activerecord:
     attributes:
+      policy:
+        address: 'Ваш адрес'
+        fullname: Страхователь
+        owner: Собственник ТС
+        auto_id: Идентификационный номер ТС
+        gos_znak: Государственный регистрационный знак ТС
+        auto_passport_type: Вид документа
+        auto_passport_serial_number: Серия
+        auto_passport_number: Номер
+      kasko_calculator:
+        franchise: Франшиза
+        city: Город
+      automobile:
+        brand: Марка автомобиля
+        model: Модель
+        cost: Стоимость
+        year: Год выпуска
+        engine: Объем двигателя
+        parking_spot: Платная стоянка
+        autostart: Функция "автостарт"
+      driver:
+        age: Возраст водителя
+        experience: Стаж водителя
+        gender: Пол
+        childrens: Есть ли дети
+        marriage: Состоит в браке
       osago_calculator:
         drivers_count:
           drivers_limited: Ограничего
@@ -40,6 +48,10 @@ en:
           older22less3: Старше 22 лет, опыт меньше 3 лет
           older22more3: Старше 22 лет, опыт больше 3 лет
   enums:
+    driver:
+      gender:
+        male: Мужской
+        female: Женский
     osago_calculator:
       drivers_count:
         drivers_limited: Ограничего

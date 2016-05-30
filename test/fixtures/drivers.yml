@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  age: 1
+  experience: 1
+  gender: 1
+  childrens: false
+  marriage: false
+
+two:
+  age: 1
+  experience: 1
+  gender: 1
+  childrens: false
+  marriage: false

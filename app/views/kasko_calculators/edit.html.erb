@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class='breadcrumbs'>
+      <ul>
+        <li><%= link_to 'Выбор типа страхования', root_path %></li>
+        <li class='active'>Расчет</li>
+        <li>Выписка</li>
+      <ul>
+    </div>
+    <hr />
+
+    <%= simple_nested_form_for @calculator do |f| %>
+      <%= f.input :city_id,  include_blank: false,  collection: City.all, selected: @calculator.city_id , label: 'Город' %>
+      <%= f.input :franchise %>
+      <%= f.simple_fields_for :drivers do |p| %>
+        <%= p.input :age %>
+        <%= p.input :experience %>
+        <%= p.input :gender %>
+        <%= p.input :childrens %>
+        <%= p.input :marriage %>
+        <%= p.link_to_remove 'Убрать водителя' %>
+      <% end %>
+      <%= f.link_to_add 'Добавить водителя', :drivers %>
+      <%= f.simple_fields_for :automobile do |p| %>
+        <%= p.input :brand %>
+        <%= p.input :model %>
+        <%= p.input :cost %>
+        <%= p.input :year %>
+        <%= p.input :engine %>
+        <%= p.input :parking_spot %>
+        <%= p.input :autostart %>
+      <% end %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h2>Расчет завершен</h2>
+    <hr />
+
+    <b>Стоимость</b> КАСКО составляет <b><%= @calculator.cost_min %> рублей.
+    <div>
+      <br />
+      <% if current_user %>
+        <%=link_to 'Сделать выписку', new_policy_path(calculator_id: @calculator.id, calculator_type: @calculator.class), class: 'btn btn-primary' %>
+      <% else %>
+        <%= link_to 'Сделать выписку', new_user_registration_path(calculator_id: @calculator.id, calculator_type: @calculator.class), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+<div>

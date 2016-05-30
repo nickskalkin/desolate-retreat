@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class='breadcrumbs'>
+      <ul>
+        <li><%= link_to 'Выбор типа страхования', root_path %></li>
+        <li class='active'>Расчет</li>
+        <li>Выписка</li>
+      <ul>
+    </div>
+    <hr />
+
+    <%= simple_nested_form_for @calculator do |f| %>
+      <%= f.input :city_id, include_blank: false, collection: City.all, selected: @calculator.city_id, label: 'Город' %>
+      <%= f.input :franchise, input_html: { value: 5000 } %>
+      <%= f.simple_fields_for :drivers do |p| %>
+        <%= p.input :age, input_html: { value: 19 } %>
+        <%= p.input :experience, input_html: { value: 1 } %>
+        <%= p.input :gender, include_blank: false %>
+        <%= p.input :childrens %>
+        <%= p.input :marriage %>
+        <%= p.link_to_remove 'Убрать водителя', class: 'btn' %>
+      <% end %>
+      <br />
+      <%= f.link_to_add 'Добавить водителя', :drivers, class: 'btn btn-info' %>
+      <br />
+      <br />
+      <%= f.simple_fields_for :automobile do |p| %>
+        <%= p.input :brand, input_html: { value: 'BMW' } %>
+        <%= p.input :model, input_html: { value: 'x6' } %>
+        <%= p.input :cost, input_html: { value: 3900000 } %>
+        <%= p.input :year, input_html: { value: 2015 } %>
+        <%= p.input :engine, input_html: { value: 4.4 } %>
+        <%= p.input :parking_spot %>
+        <%= p.input :autostart %>
+      <% end %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+<div>

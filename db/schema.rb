@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160529075909) do
+ActiveRecord::Schema.define(version: 20160530181552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "automobiles", force: :cascade do |t|
+    t.string   "brand"
+    t.string   "model"
+    t.integer  "cost"
+    t.integer  "year"
+    t.float    "engine"
+    t.boolean  "parking_spot"
+    t.boolean  "autostart"
+    t.integer  "osago_calculator_id"
+    t.integer  "kasko_calculator_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
   create_table "car_horse_powers", force: :cascade do |t|
     t.string   "description"
@@ -42,6 +56,28 @@ ActiveRecord::Schema.define(version: 20160529075909) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "drivers", force: :cascade do |t|
+    t.integer  "age"
+    t.integer  "experience"
+    t.integer  "gender"
+    t.boolean  "childrens"
+    t.boolean  "marriage"
+    t.integer  "osago_calculator_id"
+    t.integer  "kasko_calculator_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "kasko_calculators", force: :cascade do |t|
+    t.integer  "city_id"
+    t.float    "cost_min"
+    t.float    "cost_max"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "automobile_id"
+    t.float    "franchise"
+  end
+
   create_table "osago_calculators", force: :cascade do |t|
     t.integer  "city_id"
     t.integer  "drivers_count",                default: 0
@@ -66,8 +102,15 @@ ActiveRecord::Schema.define(version: 20160529075909) do
     t.string   "policy_object_type"
     t.integer  "user_id"
     t.string   "address"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "fullname"
+    t.string   "owner"
+    t.integer  "auto_id"
+    t.string   "gos_znak"
+    t.string   "auto_passport_type"
+    t.string   "auto_passport_serial_number"
+    t.string   "auto_passport_number"
   end
 
   create_table "users", force: :cascade do |t|
