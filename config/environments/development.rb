@@ -18,14 +18,14 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'gmail.com',
-    user_name: ENV['OSAGO_EMAIL'],
+    address: 'smtp.mail.ru',
+    port: 465,
+    domain: 'mail.ru',
+    user_name: ENV['OSAGO_MAIL'],
     password: ENV['OSAGO_EMAIL_PASSWORD'],
-    authentication: :plain,
+    authentication: :login,
     enable_starttls_auto: true,
-    openssl_verify_mode: 'none'
+    tls: true
   }
 
   # Print deprecation notices to the Rails logger.
