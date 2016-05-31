@@ -45,7 +45,7 @@ class KaskoCalculator < ActiveRecord::Base
   end
 
   def common_drivers_rate
-    drivers.map(&:rate).max
+    drivers.map(&:rate).max || 1
   end
 
   def stealing_rate
