@@ -1,12 +1,36 @@
 <div class="row">
-  <div class="col-md-4">
-    <%= link_to 'Выйти', destroy_user_session_path(current_user), class: 'btn btn-primary', method: 'delete' %>
+  <div class='col-md-12'>
+    <h2>Оформленные Вами полисы</h2>
+    <hr />
   </div>
-
-  <h2>Оформленные Вами полисы:</h2>
-  <ul>
-    <% @policies.each do |policy| %>
-      <li>Полис <%= policy.policy_type %> <%=link_to policy.number, policy_path(policy) %></li>
-    <% end %>
-  </ul>
+</div>
+<div class="row">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>Серия</td>
+        <td>Номер</td>
+        <td></td>
+        <td>Владелец</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @policies.each do |policy| %>
+        <tr>
+          <td>
+            <%=link_to policy.serial_number, policy_path(policy) %>
+          </td>
+          <td>
+            <%=link_to policy.number, policy_path(policy) %>
+          </td>
+          <td>
+            <%=link_to policy.policy_type, policy_path(policy) %>
+          </td>
+          <td>
+            <%=link_to (policy.owner || ''), policy_path(policy) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

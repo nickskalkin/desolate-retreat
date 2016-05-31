@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <div class='breadcrumbs'>
       <ul>
         <li class='active'><%= link_to 'Выбор типа страхования', root_path %></li>
@@ -8,14 +8,14 @@
       <ul>
     </div>
     <hr />
-
-    <ul>
-      <li>
-        <%= link_to 'Расчет стоимости ОСАГО', new_osago_calculator_path %>
-      </li>
-      <li>
-        <%= link_to 'Расчет стоимости КАСКО', new_kasko_calculator_path %>
-      </li>
-    </ul>
   </div>
 <div>
+
+<div class="row">
+  <div class="col-md-3">
+    <%= link_to 'Расчет стоимости ОСАГО', new_osago_calculator_path, class: 'btn btn-lg btn-primary' %>
+  </div>
+  <div class="col-md-3">
+    <%= link_to 'Расчет стоимости КАСКО', new_kasko_calculator_path, class: 'btn btn-lg btn-primary' %>
+  </div>
+</div>

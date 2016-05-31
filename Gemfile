@@ -13,6 +13,7 @@ gem 'puma'
 gem 'devise'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'nested_form'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -14,14 +14,30 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="/">Калькулятор</a>
-                </li>
+              <li>
+                <a href="/">Калькулятор</a>
+              </li>
+            </ul>
+            <ul class="nav navbar-top-links navbar-right">
                 <% if current_user %>
-                  <li class='navbar-righ'>
-                    <%= link_to current_user.email, user_path(current_user) %>
-                  </li>
-                <% end %>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                          <a href="/users/<%=current_user.id%>"><i class="fa fa-user fa-fw"></i> Полисы</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                          <%= link_to destroy_user_session_path, method: 'delete' do %>
+                            <i class="fa fa-sign-out fa-fw"></i> Выход</a>
+                          <% end %>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <% end%>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
