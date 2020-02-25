@@ -3,17 +3,17 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5.2'
 gem 'pg'
 gem 'uglifier', '>= 1.3.0'
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.1.1'
 gem 'jbuilder', '~> 2.0'
 gem 'simple_form'
 gem 'enum_help'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'sass-rails', '>= 3.2'
+gem 'sass-rails', '>= 5.0.4'
 gem 'puma'
-gem 'devise'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'devise', '>= 4.1.1'
+gem 'coffee-rails', '~> 4.1.1'
 gem 'nested_form'
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', '>= 4.6.3.0'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -22,6 +22,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 2.3', '>= 2.3.0'
   gem 'spring'
 end
